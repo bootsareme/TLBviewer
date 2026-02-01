@@ -30,8 +30,8 @@ PID=1234;./pagemap2 $PID | grep -v '=' | awk '{print $1}' | sudo ./tlbview $PID
 The `pagemap2` executable can be built by cloning https://github.com/dwks/pagemap and `make`ing. You can also run the following to get hit/miss stats:
 
 ```sh
-PID=1234;./pagemap2 $PID | grep -v '=' | awk '{print $1}' | sudo ./tlbview $PID
- | grep "hit" | wc -l
+PID=1234;./pagemap2 $PID | grep -v '=' | awk '{print $1}' | sudo ./tlbview $PID | grep "hit" | wc -l
+PID=1234;./pagemap2 $PID | grep -v '=' | awk '{print $1}' | sudo ./tlbview $PID | grep "miss" | wc -l
 ```
 Output can be redirected to a text file for further inspection, packaging, and parsing.
 ## Sample Output
