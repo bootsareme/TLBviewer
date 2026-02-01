@@ -57,5 +57,5 @@ TLB hit for virtual page 0x7d6fb9919 with offset = 0x437:
         0x7d6fb9917      |     0x188c35     |    r--p     |   REFERENCED,UPTODATE,LRU,ACTIVE,MMAP   |      7       |  true
         0x7d6fb9810      |     0x16995c     |    rw-p     | UPTODATE,DIRTY,LRU,MMAP,ANON,SWAPBACKED |      1       |  true
         0x7d6fb97d4      |     0x1799aa     |    r--p     |   REFERENCED,UPTODATE,LRU,ACTIVE,MMAP   |      18      |  true
-        0x7d6fb9811      |     0x195f8a     |    rw-p     |    UPTODATE,LRU,MMAP,ANON,SWAPBACKED    |      1       |  true```
+        0x7d6fb9811      |     0x195f8a     |    rw-p     |    UPTODATE,LRU,MMAP,ANON,SWAPBACKED    |      1       |  true
 ```
