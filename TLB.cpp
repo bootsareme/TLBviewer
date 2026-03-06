@@ -37,11 +37,6 @@ bool TLB::access(uint64_t tag, uint64_t pfn, std::string permissions, std::strin
 		}
 	}
 
-	// random replacement policy works surprisingly well:
-	//	see https://www.cs.virginia.edu/~cr4bd/3130/S2026/slides/caching.pdf#page=84,
-	//	and https://pages.cs.wisc.edu/~shivaram/cs537-sp23-notes/vm-tlbs/cs537-vm-tlbs-notes.pdf#page=18,
-	//	and https://www.cs.utexas.edu/~dahlin/Classes/UGOS/lectures/lec16.pdf#page=3
-
 	std::stringstream ss;
 	ss << std::hex << "0x" << tag;
 	std::string formatted_tag = ss.str();
@@ -52,6 +47,11 @@ bool TLB::access(uint64_t tag, uint64_t pfn, std::string permissions, std::strin
 	ss << std::hex << "0x" << pfn;
 	std::string formatted_pfn = ss.str();
 
+	// random replacement policy works surprisingly well:
+	//	see https://www.cs.virginia.edu/~cr4bd/3130/S2026/slides/caching.pdf#page=84,
+	//	and https://pages.cs.wisc.edu/~shivaram/cs537-sp23-notes/vm-tlbs/cs537-vm-tlbs-notes.pdf#page=18,
+	//	and https://www.cs.utexas.edu/~dahlin/Classes/UGOS/lectures/lec16.pdf#page=3
+	
 	this->just_accessed = static_cast<short>(rand() % WAYS);
 	this->tlb[this->just_accessed] = { formatted_tag, formatted_pfn, permissions, flags, std::to_string(times_mapped), BOOL2STR(soft_dirty)};
 	return false;
