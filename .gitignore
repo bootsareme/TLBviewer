@@ -3,3 +3,5 @@
 !*.cpp
 !*.h
 !README.md
+!CMakeLists.txt
+!CMakePresets.json
